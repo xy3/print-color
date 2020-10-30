@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "print-color"
+version = "0.1.0"
+description = "A simple package to print in color to the terminal"
+authors = ["xy3 <a@xsq.pw>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.5"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
