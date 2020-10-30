@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "A simple package to print in color to the terminal"
 authors = ["xy3 <a@xsq.pw>"]
 license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/xy3/print-color"
+repository = "https://github.com/xy3/print-color"
 
 [tool.poetry.dependencies]
 python = "^3.5"
