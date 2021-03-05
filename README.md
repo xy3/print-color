@@ -86,7 +86,7 @@ Note that as this is a very simple project, feature requests should be kept mini
 
 Built with [Python Poetry](https://python-poetry.org/).
 
-### Contributers
+### Contributors
 
 - Theo ([@xy3](https://github.com/xy3))
 
