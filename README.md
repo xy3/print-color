@@ -77,3 +77,16 @@ print("Printing in color", color='green', format='underline', background='grey')
 ![Printing in color is easy](https://i.imgur.com/3sUTi8z.png)
 
 
+## Contributing
+
+Feel free to add or improve this project :) Just create a pull request and explain the changes you propose.
+Note that as this is a very simple project, feature requests should be kept minimal - things like more colors, formats etc would be ideal.
+
+## Credits
+
+Built with [Python Poetry](https://python-poetry.org/).
+
+### Contributers
+
+- Theo ([@xy3](https://github.com/xy3))
+
