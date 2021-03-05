@@ -1,11 +1,11 @@
 # print-color
 
 Print Color is a minimalist approach to terminal color printing in Python. It is a wrapper around the `print()` function, and simply allows you to provide extra optional parameters such as:
-- tag
-- tag_color
-- color
-- background
-- format
+- `tag`
+- `tag_color`
+- `color`
+- `background`
+- `format`
 
 It aims to be a customizable logger for your applications, and makes formatting warnings, info messages and errors a breeze.
 
