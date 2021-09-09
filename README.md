@@ -46,7 +46,7 @@ white
 
 ### Installing
 
-```
+```shell
 pip3 install print-color
 ```
 
@@ -56,7 +56,7 @@ pip3 install print-color
 
 ### Usage
 
-```
+```python
 from print_color import print
 
 print("Hello world", tag='success', tag_color='green', color='white')
@@ -64,13 +64,13 @@ print("Hello world", tag='success', tag_color='green', color='white')
 
 ![Success tag](https://i.imgur.com/qmeYTkR.png)
 
-```
+```python
 print("Error detected", tag='failure', tag_color='red', color='magenta')
 ```
 
 ![Error tag](https://i.imgur.com/dksa03u.png)
 
-```
+```python
 print("Printing in color", color='green', format='underline', background='grey')
 ```
 
