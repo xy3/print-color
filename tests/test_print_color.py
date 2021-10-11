@@ -4,6 +4,7 @@ from io import StringIO
 
 default_ending = "\x1b[0m\n"
 
+
 def test_print_with_no_args():
     capturedOutput = StringIO()
     sys.stdout = capturedOutput
