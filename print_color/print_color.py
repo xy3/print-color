@@ -32,11 +32,15 @@ class PrintColor:
 
     def print(self):
         color = self.kwargs.pop('color', None)
+        if not color:
+            color = self.kwargs.pop('colour', None)
         back = self.kwargs.pop('background', None)
         format = self.kwargs.pop('format', None)
         tag = self.kwargs.pop('tag', None)
         tag_color = self.kwargs.pop('tag_color', None)
-        file = self.kwargs.get('file', sys.stdout)
+        if not tag_color:
+            tag_color = self.kwargs.pop('tag_colour', None)
+        # file = self.kwargs.get('file', sys.stdout)
         result = "¬".join(str(arg) for arg in self.args)
 
         if color:
@@ -63,8 +67,8 @@ class PrintColor:
     def format(self, format):
         if isinstance(format, str):
             return self.formats.get(format, self.default_color)
-        elif isinstance(format, list, tuple):
-            return "¬".join(f for f in self.formats.get(f) for f in format)
+        elif isinstance(format, list) or isinstance(format, tuple):
+            return "".join([f for f in [self.formats.get(f, "") for f in format]])
 
     @property
     def end(self):

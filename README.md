@@ -2,8 +2,8 @@
 
 Print Color is a minimalist approach to terminal color printing in Python. It is a wrapper around the `print()` function, and simply allows you to provide extra optional parameters such as:
 - `tag`
-- `tag_color`
-- `color`
+- `tag_color` or `tag_colour`
+- `color` or `colour`
 - `background`
 - `format`
 
@@ -33,9 +33,9 @@ white
 
 - `tag`
     - any string
-- `tag_color`
+- `tag_color` or `tag_colour`
     - color
-- `color`
+- `color` or `colour`
     - color
 - `background`
     - color
