@@ -39,6 +39,11 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
+      - uses: actions/cache@v2
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('setup.py') }}-${{ hashFiles('dev-requirements.txt') }}
+
       #----------------------------------------------
       #  -----  install & configure poetry  -----
       #----------------------------------------------
@@ -80,4 +85,4 @@ jobs:
       - name: Run tests
         run: |
           poetry run pytest tests/
-          coverage report
+          #coverage report
