@@ -1,6 +1,7 @@
 import sys
-from print_color import print
 from io import StringIO
+
+from print_color import print
 
 default_ending = "\x1b[0m\n"
 

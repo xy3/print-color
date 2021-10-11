@@ -1,1 +1,1 @@
-from print_color.print_color import print # noqa
+from print_color.print_color import print  # noqa
