@@ -1,9 +1,10 @@
 # print-color
 
 Print Color is a minimalist approach to terminal color printing in Python. It is a wrapper around the `print()` function, and simply allows you to provide extra optional parameters such as:
+
 - `tag`
-- `tag_color`
-- `color`
+- `tag_color` or `tag_colour`
+- `color` or `colour`
 - `background`
 - `format`
 
@@ -18,7 +19,8 @@ This project has no dependencies.
 Check out this project on [PyPi here](https://pypi.org/project/print-color/).
 
 Colors:
-```
+
+```text
 purple
 blue
 green
@@ -27,22 +29,23 @@ red
 magenta
 cyan
 white
+black
 ```
 
 ### Parameter values:
 
 - `tag`
-    - any string
-- `tag_color`
-    - color
-- `color`
-    - color
+  - any string
+- `tag_color` or `tag_colour`
+  - color
+- `color` or `colour`
+  - color
 - `background`
-    - color
+  - color
 - `format`
-    - bold
-    - underline
-    - blink
+  - bold
+  - underline
+  - blink
 
 ### Installing
 
@@ -76,7 +79,6 @@ print("Printing in color", color='green', format='underline', background='grey')
 
 ![Printing in color is easy](https://i.imgur.com/3sUTi8z.png)
 
-
 ## Contributing
 
 Feel free to add or improve this project :) Just create a pull request and explain the changes you propose.
@@ -89,4 +91,3 @@ Built with [Python Poetry](https://python-poetry.org/).
 ### Contributors
 
 - Theo ([@xy3](https://github.com/xy3))
-
