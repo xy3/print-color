@@ -90,4 +90,6 @@ Built with [Python Poetry](https://python-poetry.org/).
 
 ### Contributors
 
-- Theo ([@xy3](https://github.com/xy3))
+<a href="https://github.com/xy3/print-color/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=xy3/print-color" />
+</a>
