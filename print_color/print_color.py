@@ -11,6 +11,8 @@ class PrintColor:
         "red": '\033[31m',
         "magenta": '\033[35m',
         "cyan": '\033[36m',
+        "black": "\033[30m",
+        "white": "\033[37m",
     }
 
     backgrounds = {
