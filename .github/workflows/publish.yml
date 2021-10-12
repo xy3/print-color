@@ -11,4 +11,5 @@ jobs:
       - name: Build and publish to pypi
         uses: xy3/poetry-publish@v1.9
         with:
+          build_format: "sdist"
           pypi_token: ${{ secrets.PYPI_TOKEN }}
