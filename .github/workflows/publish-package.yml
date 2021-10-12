@@ -57,7 +57,7 @@ jobs:
       - name: Install library
         run: poetry install --no-interaction
       - name: Publish package
-      - run: |
+        run: |
           version=$(git describe --tags --abbrev=0)
           poetry version "${version}"
           poetry build
