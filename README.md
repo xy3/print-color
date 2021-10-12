@@ -1,5 +1,7 @@
 # print-color
 
+[![test](https://github.com/xy3/print-color/actions/workflows/ci.yml/badge.svg)](https://github.com/xy3/print-color/actions/workflows/ci.yml)
+
 Print Color is a minimalist approach to terminal color printing in Python. It is a wrapper around the `print()` function, and simply allows you to provide extra optional parameters such as:
 
 - `tag`
