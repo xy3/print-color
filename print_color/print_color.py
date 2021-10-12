@@ -4,42 +4,44 @@ import sys
 
 class PrintColor:
     colors = {
-        "purple": '\033[95m',
-        "blue": '\033[94m',
-        "green": '\033[92m',
-        "yellow": '\033[33m',
-        "red": '\033[31m',
-        "magenta": '\033[35m',
-        "cyan": '\033[36m',
+        "purple": "\033[95m",
+        "blue": "\033[94m",
+        "green": "\033[92m",
+        "yellow": "\033[33m",
+        "red": "\033[31m",
+        "magenta": "\033[35m",
+        "cyan": "\033[36m",
         "black": "\033[30m",
         "white": "\033[37m",
     }
 
     backgrounds = {
-        'grey': '\033[40m', 'red': '\033[41m',
-        'green': '\033[42m', 'yellow': '\033[43m',
-        'blue': '\033[44m', 'magenta': '\033[45m',
-        'cyan': '\033[46m', 'white': '\033[47m',
+        "grey": "\033[40m",
+        "red": "\033[41m",
+        "green": "\033[42m",
+        "yellow": "\033[43m",
+        "blue": "\033[44m",
+        "magenta": "\033[45m",
+        "cyan": "\033[46m",
+        "white": "\033[47m",
     }
 
-    formats = {
-        "bold": "\033[1m", "underline": "\033[4m", "blink": "\033[5m"
-    }
+    formats = {"bold": "\033[1m", "underline": "\033[4m", "blink": "\033[5m"}
 
     def __init__(self, *args, **kwargs):
         self.args = args
         self.kwargs = kwargs
 
     def print(self):
-        color = self.kwargs.pop('color', None)
+        color = self.kwargs.pop("color", None)
         if not color:
-            color = self.kwargs.pop('colour', None)
-        back = self.kwargs.pop('background', None)
-        format = self.kwargs.pop('format', None)
-        tag = self.kwargs.pop('tag', None)
-        tag_color = self.kwargs.pop('tag_color', None)
+            color = self.kwargs.pop("colour", None)
+        back = self.kwargs.pop("background", None)
+        format = self.kwargs.pop("format", None)
+        tag = self.kwargs.pop("tag", None)
+        tag_color = self.kwargs.pop("tag_color", None)
         if not tag_color:
-            tag_color = self.kwargs.pop('tag_colour', None)
+            tag_color = self.kwargs.pop("tag_colour", None)
         # file = self.kwargs.get('file', sys.stdout)
         result = "¬".join(str(arg) for arg in self.args)
 
@@ -52,11 +54,11 @@ class PrintColor:
                 result = self.color(tag_color) + result
         # result += self.end
         if back:
-            builtins.print(self.background(back), file=sys.stdout, end='')
+            builtins.print(self.background(back), file=sys.stdout, end="")
         if format:
-            builtins.print(self.format(format), file=sys.stdout, end='')
+            builtins.print(self.format(format), file=sys.stdout, end="")
         result += self.end
-        builtins.print(*result.split('¬'), **self.kwargs)
+        builtins.print(*result.split("¬"), **self.kwargs)
 
     def color(self, color):
         return self.colors.get(color, self.default_color)
@@ -72,11 +74,11 @@ class PrintColor:
 
     @property
     def end(self):
-        return '\033[0m'
+        return "\033[0m"
 
     @property
     def default_color(self):
-        return '\033[0m'
+        return "\033[0m"
 
 
 def print(*args, **kwargs):
