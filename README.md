@@ -14,7 +14,7 @@ It aims to be a customizable logger for your applications, and makes formatting 
 
 ## Information
 
-This project has no dependencies.
+This project has no dependencies, apart from `pytest` for testing.
 
 Check out this project on [PyPi here](https://pypi.org/project/print-color/).
 
