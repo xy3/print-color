@@ -1,5 +1,9 @@
 import builtins
 import sys
+import typing
+from _typeshed import SupportsWrite
+
+__all__ = ['print']
 
 
 class PrintColor:
@@ -26,7 +30,11 @@ class PrintColor:
         "white": "\033[47m",
     }
 
-    formats = {"bold": "\033[1m", "underline": "\033[4m", "blink": "\033[5m"}
+    formats = {
+        "bold": "\033[1m",
+        "underline": "\033[4m",
+        "blink": "\033[5m"
+    }
 
     def __init__(self, *args, **kwargs):
         self.args = args
@@ -81,6 +89,33 @@ class PrintColor:
         return "\033[0m"
 
 
-def print(*args, **kwargs):
-    printcolor = PrintColor(*args, **kwargs)
+Color = typing.Literal["purple", "blue", "green", "yellow", "red", "magenta", "cyan", "black", "white"]
+Background = typing.Literal["grey", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]
+Format = typing.Literal["bold", "underline", "blink"]
+
+
+def print(*values: object,
+          sep: str | None = ...,
+          end: str | None = ...,
+          file: SupportsWrite[str] | None = ...,
+          flush: bool = ...,
+
+          color: Color = None,
+          background: Background = None,
+          format: Format = None,
+          tag: str = None,
+          tag_color: Color = None,
+          **kwargs):
+    printcolor = PrintColor(*values,
+                            sep=sep,
+                            end=end,
+                            file=file,
+                            flush=flush,
+
+                            color=color,
+                            background=background,
+                            format=format,
+                            tag=tag,
+                            tag_color=tag_color,
+                            **kwargs)
     printcolor.print()
