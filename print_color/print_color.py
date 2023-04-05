@@ -95,10 +95,10 @@ Format = typing.Literal["bold", "underline", "blink"]
 
 
 def print(*values: object,
-          sep: str | None = ...,
-          end: str | None = ...,
-          file: SupportsWrite[str] | None = ...,
-          flush: bool = ...,
+          sep: str = ' ',
+          end: str = '\n',
+          file: SupportsWrite[str] = None,
+          flush: bool = False,
 
           color: Color = None,
           background: Background = None,
