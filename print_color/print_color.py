@@ -1,5 +1,10 @@
 import builtins
 import sys
+import typing
+from _typeshed import SupportsWrite
+
+
+__all__ = ['print']
 
 
 class PrintColor:
@@ -26,22 +31,26 @@ class PrintColor:
         "white": "\033[47m",
     }
 
-    formats = {"bold": "\033[1m", "underline": "\033[4m", "blink": "\033[5m"}
+    formats = {
+        "bold": "\033[1m",
+        "underline": "\033[4m",
+        "blink": "\033[5m"
+    }
 
     def __init__(self, *args, **kwargs):
         self.args = args
         self.kwargs = kwargs
 
     def print(self):
-        color = self.kwargs.pop("color", None)
+        color = self.kwargs.get("color")
         if not color:
-            color = self.kwargs.pop("colour", None)
-        back = self.kwargs.pop("background", None)
-        format = self.kwargs.pop("format", None)
-        tag = self.kwargs.pop("tag", None)
-        tag_color = self.kwargs.pop("tag_color", None)
+            color = self.kwargs.get("colour")
+        back = self.kwargs.get("background")
+        format = self.kwargs.get("format")
+        tag = self.kwargs.get("tag")
+        tag_color = self.kwargs.get("tag_color")
         if not tag_color:
-            tag_color = self.kwargs.pop("tag_colour", None)
+            tag_color = self.kwargs.get("tag_colour")
         # file = self.kwargs.get('file', sys.stdout)
         result = "¬".join(str(arg) for arg in self.args)
 
@@ -81,6 +90,33 @@ class PrintColor:
         return "\033[0m"
 
 
-def print(*args, **kwargs):
-    printcolor = PrintColor(*args, **kwargs)
+Color = typing.Literal["purple", "blue", "green", "yellow", "red", "magenta", "cyan", "black", "white"]
+Background = typing.Literal["grey", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]
+Format = typing.Literal["bold", "underline", "blink"]
+
+
+def print(*values: object,
+          sep: str | None = ...,
+          end: str | None = ...,
+          file: SupportsWrite[str] | None = ...,
+          flush: bool = ...,
+
+          color: Color = None,
+          background: Background = None,
+          format: Format = None,
+          tag: str = None,
+          tag_color: Color = None,
+          **kwargs):
+    printcolor = PrintColor(*values,
+                            sep=sep,
+                            end=end,
+                            file=file,
+                            flush=flush,
+
+                            color=color,
+                            background=background,
+                            format=format,
+                            tag=tag,
+                            tag_color=tag_color,
+                            **kwargs)
     printcolor.print()
