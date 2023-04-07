@@ -1,7 +1,6 @@
 import builtins
 import sys
 import typing
-from _typeshed import SupportsWrite
 
 __all__ = ['print']
 
@@ -92,6 +91,13 @@ class PrintColor:
 Color = typing.Literal["purple", "blue", "green", "yellow", "red", "magenta", "cyan", "black", "white"]
 Background = typing.Literal["grey", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]
 Format = typing.Literal["bold", "underline", "blink"]
+
+
+_T_contra = typing.TypeVar('_T_contra', contravariant=True)
+
+
+class SupportsWrite(typing.Protocol[_T_contra]):
+    def write(self, __s: _T_contra) -> typing.Any: ...
 
 
 def print(*values: object,
