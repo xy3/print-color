@@ -17,7 +17,10 @@ class PrintColor:
         "black": "\033[30m",
         "white": "\033[37m",
     }
-    colors["v"] = colors["purple"]
+
+    # Abbreviations and aliases
+    colors["v"] = colors["purple"]  # v for violet
+    colors["p"] = colors["purple"]
     colors["b"] = colors["blue"]
     colors["g"] = colors["green"]
     colors["y"] = colors["yellow"]
@@ -38,6 +41,8 @@ class PrintColor:
         "white": "\033[47m",
     }
 
+    # Abbreviations and aliases
+    backgrounds["gray"] = backgrounds["grey"]
     backgrounds["gr"] = backgrounds["grey"]
     backgrounds["r"] = backgrounds["red"]
     backgrounds["g"] = backgrounds["green"]
@@ -102,8 +107,48 @@ class PrintColor:
         return "\033[0m"
 
 
-ColorAbbr = typing.Literal["v", "b", "g", "y", "r", "m", "c", "k", "w"]
-BackgroundAbbr = typing.Literal["gr", "r", "g", "y", "b", "m", "c", "w"]
+Color = typing.Literal[
+    "purple",
+    "blue",
+    "green",
+    "yellow",
+    "red",
+    "magenta",
+    "yan",
+    "black",
+    "white",
+    "v",
+    "p",
+    "b",
+    "g",
+    "y",
+    "r",
+    "m",
+    "c",
+    "k",
+    "w",
+]
+
+Background = typing.Literal[
+    "grey",
+    "red",
+    "green",
+    "yellow",
+    "blue",
+    "magenta",
+    "cyan",
+    "white",
+    "gray",
+    "gr",
+    "r",
+    "g",
+    "y",
+    "b",
+    "m",
+    "c",
+    "w",
+]
+
 Format = typing.Literal["bold", "underline", "blink"]
 
 
@@ -121,11 +166,11 @@ def print(
     end: str = "\n",
     file: SupportsWrite[str] = None,
     flush: bool = False,
-    color: ColorAbbr = None,
-    background: BackgroundAbbr = None,
+    color: Color = None,
+    background: Background = None,
     format: Format = None,
     tag: str = None,
-    tag_color: ColorAbbr = None,
+    tag_color: Color = None,
     **kwargs,
 ):
     printcolor = PrintColor(

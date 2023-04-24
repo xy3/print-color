@@ -57,7 +57,7 @@ pip3 install print-color
 
 ### Requirements
 
-- python 3.5^
+- python 3.7^
 
 ### Usage
 
