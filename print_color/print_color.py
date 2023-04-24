@@ -1,5 +1,8 @@
 import builtins
 import sys
+import typing
+
+__all__ = ["print"]
 
 
 class PrintColor:
@@ -14,6 +17,15 @@ class PrintColor:
         "black": "\033[30m",
         "white": "\033[37m",
     }
+    colors["v"] = colors["purple"]
+    colors["b"] = colors["blue"]
+    colors["g"] = colors["green"]
+    colors["y"] = colors["yellow"]
+    colors["r"] = colors["red"]
+    colors["m"] = colors["magenta"]
+    colors["c"] = colors["cyan"]
+    colors["k"] = colors["black"]
+    colors["w"] = colors["white"]
 
     backgrounds = {
         "grey": "\033[40m",
@@ -25,6 +37,15 @@ class PrintColor:
         "cyan": "\033[46m",
         "white": "\033[47m",
     }
+
+    backgrounds["gr"] = backgrounds["grey"]
+    backgrounds["r"] = backgrounds["red"]
+    backgrounds["g"] = backgrounds["green"]
+    backgrounds["y"] = backgrounds["yellow"]
+    backgrounds["b"] = backgrounds["blue"]
+    backgrounds["m"] = backgrounds["magenta"]
+    backgrounds["c"] = backgrounds["cyan"]
+    backgrounds["w"] = backgrounds["white"]
 
     formats = {"bold": "\033[1m", "underline": "\033[4m", "blink": "\033[5m"}
 
@@ -81,6 +102,43 @@ class PrintColor:
         return "\033[0m"
 
 
-def print(*args, **kwargs):
-    printcolor = PrintColor(*args, **kwargs)
+ColorAbbr = typing.Literal["v", "b", "g", "y", "r", "m", "c", "k", "w"]
+BackgroundAbbr = typing.Literal["gr", "r", "g", "y", "b", "m", "c", "w"]
+Format = typing.Literal["bold", "underline", "blink"]
+
+
+_T_contra = typing.TypeVar("_T_contra", contravariant=True)
+
+
+class SupportsWrite(typing.Protocol[_T_contra]):
+    def write(self, __s: _T_contra) -> typing.Any:
+        ...
+
+
+def print(
+    *values: object,
+    sep: str = " ",
+    end: str = "\n",
+    file: SupportsWrite[str] = None,
+    flush: bool = False,
+    color: ColorAbbr = None,
+    background: BackgroundAbbr = None,
+    format: Format = None,
+    tag: str = None,
+    tag_color: ColorAbbr = None,
+    **kwargs,
+):
+    printcolor = PrintColor(
+        *values,
+        sep=sep,
+        end=end,
+        file=file,
+        flush=flush,
+        color=color,
+        background=background,
+        format=format,
+        tag=tag,
+        tag_color=tag_color,
+        **kwargs,
+    )
     printcolor.print()
