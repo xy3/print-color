@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "print-color"
-version = "0.3.0"
+version = "0.4.6"
 description = "A simple package to print in color to the terminal"
 authors = ["xy3 <a@xsq.pw>"]
 license = "MIT"
