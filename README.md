@@ -6,6 +6,7 @@ Print Color is a minimalist approach to terminal color printing in Python. It is
 
 - `tag`
 - `tag_color` or `tag_colour`
+- `tag_format`
 - `color` or `colour`
 - `background`
 - `format`

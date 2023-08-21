@@ -66,23 +66,28 @@ class PrintColor:
         format = self.kwargs.pop("format", None)
         tag = self.kwargs.pop("tag", None)
         tag_color = self.kwargs.pop("tag_color", None)
+        tag_format = self.kwargs.pop("tag_format", None)
         if not tag_color:
             tag_color = self.kwargs.pop("tag_colour", None)
         # file = self.kwargs.get('file', sys.stdout)
         result = "¬".join(str(arg) for arg in self.args)
 
         if color:
-            result = self.color(color) + result
+            result = self.color(color) + result + self.end
+            if format:
+                result = self.format(format) + result
 
         if tag:
-            result = f"[{tag}] {result}"
+            tag = f"[{tag}]"
             if tag_color:
-                result = self.color(tag_color) + result
+                tag = self.color(tag_color) + tag + self.end
+            if tag_format:
+                tag = self.format(tag_format) + tag
+            result = f"{tag} {result}"
         # result += self.end
         if back:
             builtins.print(self.background(back), file=sys.stdout, end="")
-        if format:
-            builtins.print(self.format(format), file=sys.stdout, end="")
+
         result += self.end
         builtins.print(*result.split("¬"), **self.kwargs)
 
@@ -171,6 +176,7 @@ def print(
     format: Format = None,
     tag: str = None,
     tag_color: Color = None,
+    tag_format: Format = None,
     **kwargs,
 ):
     printcolor = PrintColor(
@@ -184,6 +190,7 @@ def print(
         format=format,
         tag=tag,
         tag_color=tag_color,
+        tag_format=tag_format,
         **kwargs,
     )
     printcolor.print()
