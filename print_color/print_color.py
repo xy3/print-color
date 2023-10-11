@@ -114,7 +114,7 @@ Color = typing.Literal[
     "yellow",
     "red",
     "magenta",
-    "yan",
+    "cyan",
     "black",
     "white",
     "v",
