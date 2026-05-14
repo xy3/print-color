@@ -1,11 +1,12 @@
 [project]
 name = "print-color"
-version = "0.4.6"
+version = "0.4.7"
 description = "A simple package to print in color to the terminal"
 authors = [{name="xy3", email="a@xsq.pw"}]
 license = "MIT"
 readme = "README.md"
 requires-python = ">=3.7"
+dependencies = []
 
 [project.urls]
 Homepage = "https://github.com/xy3/print-color"
@@ -14,3 +15,6 @@ Repository = "https://github.com/xy3/print-color"
 [project.optional-dependencies]
 dev = ["pytest"]
 
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

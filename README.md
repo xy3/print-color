@@ -59,7 +59,13 @@ black
 ### Installing
 
 ```shell
-pip3 install print-color
+pip install print-color
+```
+
+Or with uv:
+
+```shell
+uv add print-color
 ```
 
 ### Requirements
@@ -95,7 +101,7 @@ Note that as this is a very simple project, feature requests should be kept mini
 
 ## Credits
 
-Built with [Python Poetry](https://python-poetry.org/).
+Built with standard Python tooling. Supports pip and [uv](https://docs.astral.sh/uv/).
 
 ### Contributors
 
