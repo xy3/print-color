@@ -161,8 +161,7 @@ _T_contra = typing.TypeVar("_T_contra", contravariant=True)
 
 
 class SupportsWrite(typing.Protocol[_T_contra]):
-    def write(self, __s: _T_contra) -> typing.Any:
-        ...
+    def write(self, __s: _T_contra) -> typing.Any: ...
 
 
 def print(
