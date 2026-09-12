@@ -72,8 +72,12 @@ class PrintColor:
         # file = self.kwargs.get('file', sys.stdout)
         result = "¬".join(str(arg) for arg in self.args)
 
+        content = result.lstrip("\r\n")
+        leading_newlines = result[: len(result) - len(content)]
+        result = content
+
         if color:
-            result = self.color(color) + result + self.end
+            result = self.color(color) + result
             if format:
                 result = self.format(format) + result
 
@@ -88,7 +92,7 @@ class PrintColor:
         if back:
             builtins.print(self.background(back), file=sys.stdout, end="")
 
-        result += self.end
+        result = leading_newlines + result + self.end
         builtins.print(*result.split("¬"), **self.kwargs)
 
     def color(self, color):
